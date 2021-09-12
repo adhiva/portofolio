@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
-import { Head } from 'next/head';
+import React, { useState } from 'react'
+import Head from 'next/head'
 import { 
     Heading,
     Flex,
     Stack,
-    Input,
-    InputGroup,
-    InputRightElement,
-    Container
 } from '@chakra-ui/react';
+import Container from '../components/Container'
+import { getAllFilesFrontMatter } from '../lib/mdx'
+import BlogPost from '../components/BlogPost';
  
-export default function Blog({post}) {
+export default function Blog( { posts }) {
     return (
         <>
             <Head>
@@ -35,6 +34,7 @@ export default function Blog({post}) {
                         <Heading letterSpacing="tight" mb={4} as="h1" size="2xl">
                             Blog ({posts.length} posts)
                         </Heading>
+                        {posts.map((frontMatter) => <BlogPost key={frontMatter.title} {...frontMatter} />)}
                     </Flex>
                 </Stack>
             </Container>
@@ -43,5 +43,7 @@ export default function Blog({post}) {
 }
 
 export async function getStaticProps() {
-    return {props : {post}}
+    const posts = await getAllFilesFrontMatter('blog')
+
+    return { props: { posts } }
 }
