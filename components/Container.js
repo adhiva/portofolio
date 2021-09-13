@@ -10,6 +10,7 @@ import NextLink from 'next/link'
 import styled from '@emotion/styled'
 
 import DarkModeSwitch from './DarkModeSwitch';
+import SocialMediaIcon from './SocialMediaIcon'
 
 const Container = ({ children }) => {
     const { colorMode } = useColorMode();
@@ -76,7 +77,10 @@ const Container = ({ children }) => {
                         </Button>
                     </NextLink>
                 </Box>
-                <DarkModeSwitch />
+                <Box>
+                    <SocialMediaIcon />
+                    <DarkModeSwitch />
+                </Box>
             </StickNav>
             <Flex
                 as="main"

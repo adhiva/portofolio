@@ -62,9 +62,7 @@ export default function BlogLayout({ children, frontMatter }) {
                                 mr={2}
                             />
                             <Text fontSize="sm" color={textColor[colorMode]}>
-                                {frontMatter.by}
-                                {'Adhitya Giva Muhammad / '}
-                                {format(parseISO(frontMatter.publishedAt), 'MMMM dd, yyyy')}
+                                {frontMatter.by} {frontMatter.author} / {format(parseISO(frontMatter.publishedAt), 'MMMM dd, yyyy')}
                             </Text>
                         </Flex>
                         <Text fontSize="sm" color="gray.500" minWidth="100px" mt={[2, 0]}>
