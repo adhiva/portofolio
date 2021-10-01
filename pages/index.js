@@ -4,9 +4,10 @@ import {
     Text,
     Heading,
     Flex,
+    Box,
     Stack
 } from '@chakra-ui/layout'
-import { useColorMode } from '@chakra-ui/react'
+import { useColorMode, Image } from '@chakra-ui/react'
 
 export default function Index() {
     const { colorMode } = useColorMode()
@@ -27,20 +28,38 @@ export default function Index() {
                     justifyContent="center"
                     alignItems="flex-start"
                     m="0 auto 4rem auto"
-                    maxWidth="700px"
+                    maxWidth="900px"
                     px={2}
                 >
-                    <Flex
-                        flexDirection="column"
-                        justifyContent="flex-start"
-                        alignItems="flex-start"
-                        maxWidth="700px"
-                    >
-                        <Heading mb={2}>Hi I'm Adhitya Giva Muhammad</Heading>
-                        <Text color={colorSecondary[colorMode]}>Hello, World!</Text>
+                    <Flex maxWidth="750px">
+                        <Box
+                            maxWidth="550px">
+                            <Heading mb={2}>Hi, I'm Adhitya Giva Muhammad</Heading>
+                            <Text color={colorSecondary[colorMode]}>
+                                Anyeong aseo yorobun, Konnichiwa mina-san, Halo semua 👋
+                            </Text>
+                            <Text color={colorSecondary[colorMode]}>
+                                I'm Adhitya Giva Muhammad, someone interested to Tech and Software Engineering
+                            </Text>
+                        </Box>
+                        <Box maxWidth="200px" pl={8}>
+                            <Image
+                                boxSize="150px"
+                                objectFit="cover"
+                                borderRadius="full"
+                                src="/images/profile.jpg"
+                                alt="Segun Adebayo"
+                                fallbackSrc="https://via.placeholder.com/150"
+                            />
+                        </Box>
                     </Flex>
                 </Stack>
             </Container>
         </>
     )
+}
+
+export async function getStaticProps() {
+    // Getting started to load the .env    
+    return { props: {} }
 }
