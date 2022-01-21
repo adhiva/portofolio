@@ -10,19 +10,18 @@ import NextLink from 'next/link'
 import styled from '@emotion/styled'
 
 import DarkModeSwitch from './DarkModeSwitch';
-import SocialMediaIcon from './SocialMediaIcon'
 
 const Container = ({ children }) => {
     const { colorMode } = useColorMode();
     
     const bgColor = {
-        light: 'white',
-        dark: '#171717'
+        light: 'gray.50',
+        dark: 'gray.900'
     }
 
     const navHoverBg = {
-        light: 'gray.600',
-        dark: 'gray.300'
+        light: 'gray.300',
+        dark: 'gray.600'
     }
 
     const color = {
@@ -41,20 +40,20 @@ const Container = ({ children }) => {
         <>
             <StickNav
                 flexDirection="row"
-                justifyContent="space-between"
+                justifyContent="center"
                 alignItems="center"
-                maxWidth="800px"
                 minWidth="356px"
                 width="100%"
                 bg={bgColor[colorMode]}
                 as="nav"
                 px={[2, 6, 6]}
                 py={2}
-                mt={8}
                 mb={[0, 0, 8]}
                 mx="auto"
             >
-                <Box>
+                <Box
+                    alignItems="center"
+                >
                     <NextLink href="/" passHref>
                         <Button
                             as="a" variant="ghost" p={[1,2,4]} _hover={{ backgroundColor: navHoverBg[colorMode] }}
@@ -69,16 +68,13 @@ const Container = ({ children }) => {
                             Blog
                         </Button>
                     </NextLink>
-                    <NextLink href="/achievment" passHref>
+                    <NextLink href="/portofolio" passHref>
                         <Button
                             as="a" variant="ghost" p={[1,2,4]} _hover={{ backgroundColor: navHoverBg[colorMode] }}
                         >
-                            Achievement
+                            Portofolio
                         </Button>
                     </NextLink>
-                </Box>
-                <Box>
-                    <SocialMediaIcon />
                     <DarkModeSwitch />
                 </Box>
             </StickNav>
@@ -86,7 +82,6 @@ const Container = ({ children }) => {
                 as="main"
                 justifyContent="center"
                 flexDirection="column"
-                bg={bgColor[colorMode]}
                 color={color[colorMode]}
                 px={[0, 4, 4]}
                 mt={[4, 8, 8]}
