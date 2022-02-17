@@ -2,6 +2,7 @@
 import { ChakraProvider, ColorModeProvider, useColorMode } from "@chakra-ui/react"
 import customTheme from "../styles/theme"
 import { Global, css } from "@emotion/react"
+import SmallWithLogoLeft from "../components/Footer"
 
 const GlobalStyle = ({children}) => {
   const { colorMode } = useColorMode()
@@ -46,6 +47,7 @@ function MyApp({ Component, pageProps }) {
       </ColorModeProvider>
       <GlobalStyle>
         <Component {...pageProps} />
+        <SmallWithLogoLeft />
       </GlobalStyle>
     </ChakraProvider>
   )

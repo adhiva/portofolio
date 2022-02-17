@@ -1,22 +1,51 @@
 import { useColorMode, IconButton, Link } from '@chakra-ui/react'
-import { FaTwitter, FaInstagram, FaGithub, FaLinkedin } from 'react-icons/fa'
+import { FiTwitter, FiInstagram, FiGithub, FiLinkedin } from 'react-icons/fi'
 
 const SocialMediaIcon = () => {
-    const { toggleColorMode } = useColorMode()
+    const { colorMode } = useColorMode()
+    const iconColor = {
+        light: 'black',
+        dark: 'white'
+    }
+    
+    const footerHoverBg = {
+        light: 'gray.100',
+        dark: 'gray.700',
+    }
 
     return (
         <>
             <Link href={process.env.LINKEDIN_URL} isExternal>
-                <IconButton mr={2} icon={<FaLinkedin />} isRound='true' />
+                <IconButton 
+                    icon={<FiLinkedin />} 
+                    variant="ghost"
+                    color={iconColor[colorMode]}
+                    _hover={{ backgroundColor: footerHoverBg[colorMode] }}
+                />
             </Link>
             <Link href={process.env.GITHUB_URL} isExternal>
-                <IconButton mr={2} icon={<FaGithub />} isRound='true' onClick={toggleColorMode} />
+                <IconButton 
+                    icon={<FiGithub />} 
+                    variant="ghost"
+                    color={iconColor[colorMode]}
+                    _hover={{ backgroundColor: footerHoverBg[colorMode] }}
+                />
             </Link>
             <Link href={process.env.INSTAGRAM_URL} isExternal>
-                <IconButton mr={2} icon={<FaInstagram />} isRound='true' onClick={toggleColorMode} />
+                <IconButton 
+                    icon={<FiInstagram />} 
+                    variant="ghost"
+                    color={iconColor[colorMode]}
+                    _hover={{ backgroundColor: footerHoverBg[colorMode] }}
+                />
             </Link>
             <Link href={process.env.TWITTER_URL} isExternal>
-                <IconButton mr={2} icon={<FaTwitter />} isRound='true' onClick={toggleColorMode} />
+                <IconButton 
+                    icon={<FiTwitter />} 
+                    variant="ghost"
+                    color={iconColor[colorMode]}
+                    _hover={{ backgroundColor: footerHoverBg[colorMode] }}
+                />
             </Link>
         </>
     )

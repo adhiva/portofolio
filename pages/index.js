@@ -48,7 +48,7 @@ export default function Index() {
                                 objectFit="cover"
                                 borderRadius="full"
                                 src="/images/profile.jpg"
-                                alt="Segun Adebayo"
+                                alt="Adhitya Giva Muhammad"
                                 fallbackSrc="https://via.placeholder.com/150"
                             />
                         </Box>
